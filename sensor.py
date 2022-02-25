@@ -12,12 +12,6 @@ def sendmessage():
 
 count = 0
 
-#while True:
-#    if pir.motion_detected:
-#        print("motion detected", count)
-#	count = count + 1
-#	sleep(1)
-
 while True:
     pir.wait_for_motion()
     print("Motion Detected")
