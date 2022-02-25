@@ -16,18 +16,16 @@ camera = PiCamera()
 filename = "null"
 
 def takepicture():
-    camera.start_preview()
     filename = "/home/pi/birdyshots/picture_" + str(time.time()) + ".jpg"
     camera.capture(filename)
-    camera.stop_preview()
-    sleep(2)
+    sleep(1)
     return filename
 
 def tweetpicture(picturepath):
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
-    tweet = "Bird Detected"
+    tweet = "Bird Detected" + str(time.time())
     status = api.update_with_media(picturepath, tweet)
     api.update_status(status = tweet)
 
@@ -35,7 +33,7 @@ while True:
     pir.wait_for_motion()
     print("Motion Detected")
     picturepath = takepicture()
-    tweetpicture(picturepath)
+#    tweetpicture(picturepath)
     pir.wait_for_no_motion()
     print("Motion Stopped")
 
