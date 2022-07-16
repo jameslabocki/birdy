@@ -14,7 +14,7 @@ access_token_secret = 'Your Twitter Access Token Secret'
 ```
 
 
-You will need to request enhanced privileges in your Twitter developer account in order for birdy to be able to write tweets. This can take some time to have it granted.
+Note: You will need to request enhanced privileges in your Twitter developer account in order for birdy to be able to write tweets. This can take some time to have it granted.
 
 ## Wiring
 Birdy looks for the control wire from the PIR sensor to be on GPIO(27). 
